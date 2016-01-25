@@ -19,5 +19,19 @@ original String
 
 char * get_sub_string(char *str, int i, int j){
 
-    return NULL;
+	char *sub_string = NULL;
+	int index = 0, start;
+	if (str == NULL || i<0 || j<= 0 || i> j)
+		return NULL;
+	else
+	{
+		sub_string = (char *)malloc(sizeof(char)*(j - i+1));
+		for (index = 0; str[index]; index++)
+			if (index == i)
+				break;
+			for (start = 0; start<=j-i; index++, start++)
+				sub_string[start] = str[index];
+			sub_string[start] = '\0';
+	}
+	return sub_string;
 }
